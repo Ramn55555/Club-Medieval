@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/smw_coin.wav-35a9c49d23a7da6fe4d64cd4280cd469.sample"
+
+[deps]
+
+source_file="res://Sounds/smw_coin.wav"
+dest_files=[ "res://.import/smw_coin.wav-35a9c49d23a7da6fe4d64cd4280cd469.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

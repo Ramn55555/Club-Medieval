@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Taiga-Asset-Pack_v2_vnitti/Taiga-Asset-Pack_v2_vnitti/PNG/Props.png" type="Texture" id=1]
+
+[node name="Arbol" type="Node2D"]
+position = Vector2( 199.398, 131.288 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.222839, 0.402252 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 24, 13, 64, 147 )
