@@ -15,11 +15,13 @@ var anim = ""
 
 onready var sprite = $Sprite
 
+func get_class():
+	return "knight"
+
+
 func move_to(x,y):
 	position.x = x
 	position.y = y
-	
-
 
 
 func get_score(n):
@@ -61,6 +63,10 @@ func _physics_process(delta):
 	if on_floor and Input.is_action_just_pressed("saltar"):
 		lineal_vel.y = -JUMP_SPEED
 		$Jump.play()
+		
+	#ataque#
+	if on_floor and Input.is_action_just_pressed("atacar"):
+		$AnimationPlayer.play("attack")
 	
 	###Animacion###
 

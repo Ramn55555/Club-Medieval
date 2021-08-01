@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://fonts/Sketch_Gothic_School.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Sounds/jump.wav" type="AudioStream" id=2]
@@ -6,12 +6,102 @@
 [ext_resource path="res://scripts/Knight.gd" type="Script" id=4]
 [ext_resource path="res://textures/noBKG_KnightDeath_strip.png" type="Texture" id=5]
 [ext_resource path="res://scenes/Menu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/Espada.gd" type="Script" id=7]
+[ext_resource path="res://scripts/CollisionPolygon2D.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.61018, 11.0648 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 5.03034
+
+[sub_resource type="Animation" id=9]
+resource_name = "attack"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 43, 41, 40, 39 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 11 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Espada/CollisionPolygon2D:build_mode")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 1 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Espada/CollisionPolygon2D:polygon")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 11.3954, -1.35726, -4.18149, -15.4079, 7.2946, -19.2072, 19.8826, -14.7382, 23.946, -6.68155, 23.6489, 0.749267, 20.1693, 7.79996, 13.4056, 12.4639, 2.78351, 12.8485, 8.14596, 6.40325 ), PoolVector2Array( 11.3954, -1.35726, -4.18149, -15.4079, 7.2946, -19.2072, 19.8826, -14.7382, 23.946, -6.68155, 23.6489, 0.749267, 20.1693, 7.79996, 13.4056, 12.4639, 2.78351, 12.8485, 8.14596, 6.40325 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Espada/CollisionPolygon2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5, 0.6, 0.7, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false, false, true, true ]
+}
 
 [sub_resource type="Animation" id=3]
 length = 2.0
@@ -368,7 +458,7 @@ tracks/5/keys = {
 "values": [ Vector2( 6.62858, -6.23844 ), Vector2( 6.62858, -6.23844 ) ]
 }
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=8]
 size = 24
 font_data = ExtResource( 1 )
 
@@ -389,9 +479,10 @@ position = Vector2( -0.18927, 0.19223 )
 texture = ExtResource( 3 )
 hframes = 7
 vframes = 11
-frame = 2
+frame = 39
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 9 )
 anims/death = SubResource( 3 )
 anims/fall = SubResource( 4 )
 anims/idle = SubResource( 5 )
@@ -411,15 +502,25 @@ volume_db = -19.303
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Score" type="Label" parent="CanvasLayer"]
-visible = false
 margin_left = 2.61086
 margin_top = 1.81609
 margin_right = 53.6109
 margin_bottom = 19.8161
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 text = "Score: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Menu" parent="." instance=ExtResource( 6 )]
+
+[node name="Espada" type="Area2D" parent="."]
+script = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Espada"]
+position = Vector2( 0.353951, -0.353952 )
+rotation = -0.00822043
+build_mode = 1
+polygon = PoolVector2Array( 11.3954, -1.35726, -4.18149, -15.4079, 7.2946, -19.2072, 19.8826, -14.7382, 23.946, -6.68155, 23.6489, 0.749267, 20.1693, 7.79996, 13.4056, 12.4639, 2.78351, 12.8485, 8.14596, 6.40325 )
+disabled = true
+script = ExtResource( 8 )

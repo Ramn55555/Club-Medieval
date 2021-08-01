@@ -16,9 +16,11 @@ func _ready():
 func _physics_process(delta):
 	for body in $AreaOpen.get_overlapping_bodies():
 		if body is KinematicBody2D:
+			print(body.get_class())
 			if opened == false: 
 				$AnimationPlayer.play("openchest")
 				opened = true
+				body.get_coin()
 			
 	
 	#for body in $AreaClose.get_overlapping_bodies():
