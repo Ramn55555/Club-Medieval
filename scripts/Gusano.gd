@@ -18,6 +18,7 @@ func _physics_process(delta):
 			die()
 			body.kill_gusano()
 	for area in $Area2D.get_overlapping_areas():
+		print(area)
 		if area is Area2D:
 			if area.get_class() == "sword":
 				die()

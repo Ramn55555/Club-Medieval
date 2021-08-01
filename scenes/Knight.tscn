@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://fonts/Sketch_Gothic_School.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Sounds/jump.wav" type="AudioStream" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://textures/noBKG_KnightDeath_strip.png" type="Texture" id=5]
 [ext_resource path="res://scenes/Menu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/Espada.gd" type="Script" id=7]
-[ext_resource path="res://scripts/CollisionPolygon2D.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.61018, 11.0648 )
@@ -15,7 +14,7 @@ extents = Vector2( 7.61018, 11.0648 )
 [sub_resource type="CircleShape2D" id=2]
 radius = 5.03034
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=3]
 resource_name = "attack"
 length = 1.4
 tracks/0/type = "value"
@@ -76,7 +75,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0.5, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 1, 1 ]
+"values": [ 0, 0 ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Espada/CollisionPolygon2D:polygon")
@@ -88,7 +87,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0.5, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ PoolVector2Array( 11.3954, -1.35726, -4.18149, -15.4079, 7.2946, -19.2072, 19.8826, -14.7382, 23.946, -6.68155, 23.6489, 0.749267, 20.1693, 7.79996, 13.4056, 12.4639, 2.78351, 12.8485, 8.14596, 6.40325 ), PoolVector2Array( 11.3954, -1.35726, -4.18149, -15.4079, 7.2946, -19.2072, 19.8826, -14.7382, 23.946, -6.68155, 23.6489, 0.749267, 20.1693, 7.79996, 13.4056, 12.4639, 2.78351, 12.8485, 8.14596, 6.40325 ) ]
+"values": [ PoolVector2Array( 7.19668, -3.35077, -4.18149, -15.4079, 7.2946, -19.2072, 19.8826, -14.7382, 23.946, -6.68155, 23.6489, 0.749267, 20.1693, 7.79996, 13.4056, 12.4639, 2.78351, 12.8485, 8.14596, 6.40325 ), PoolVector2Array( 6.78679, -1.76668, -4.18149, -15.4079, 7.2946, -19.2072, 19.8826, -14.7382, 23.946, -6.68155, 23.6489, 0.749267, 20.1693, 7.79996, 13.4056, 12.4639, 2.78351, 12.8485, 7.11839, 6.17332 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("Espada/CollisionPolygon2D:disabled")
@@ -102,8 +101,20 @@ tracks/6/keys = {
 "update": 1,
 "values": [ true, true, false, false, true, true ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("Espada/CollisionPolygon2D:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5, 0.6, 0.7, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, true, false, false ]
+}
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 2.0
 step = 0.2
 tracks/0/type = "value"
@@ -155,7 +166,7 @@ tracks/3/keys = {
 "values": [ 59, 60, 61, 62, 63, 64, 65, 68 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -231,7 +242,7 @@ tracks/5/keys = {
 "values": [ Vector2( 2.21713, 2.15576 ), Vector2( 2.217, 2.156 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -307,7 +318,7 @@ tracks/5/keys = {
 "values": [ Vector2( -0.482769, -7.54678 ), Vector2( -0.482769, -7.54678 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -382,7 +393,7 @@ tracks/5/keys = {
 "values": [ Vector2( 2.47301, -3.30586 ), Vector2( 3.11557, -7.93229 ), Vector2( 3.11557, -7.93229 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -458,7 +469,7 @@ tracks/5/keys = {
 "values": [ Vector2( 6.62858, -6.23844 ), Vector2( 6.62858, -6.23844 ) ]
 }
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=9]
 size = 24
 font_data = ExtResource( 1 )
 
@@ -482,12 +493,12 @@ vframes = 11
 frame = 39
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/attack = SubResource( 9 )
-anims/death = SubResource( 3 )
-anims/fall = SubResource( 4 )
-anims/idle = SubResource( 5 )
-anims/jump = SubResource( 6 )
-anims/run = SubResource( 7 )
+anims/attack = SubResource( 3 )
+anims/death = SubResource( 4 )
+anims/fall = SubResource( 5 )
+anims/idle = SubResource( 6 )
+anims/jump = SubResource( 7 )
+anims/run = SubResource( 8 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( -1.58667, -34.9069 )
@@ -506,7 +517,7 @@ margin_left = 2.61086
 margin_top = 1.81609
 margin_right = 53.6109
 margin_bottom = 19.8161
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 text = "Score: 0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -518,9 +529,8 @@ __meta__ = {
 script = ExtResource( 7 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Espada"]
+visible = false
 position = Vector2( 0.353951, -0.353952 )
 rotation = -0.00822043
-build_mode = 1
-polygon = PoolVector2Array( 11.3954, -1.35726, -4.18149, -15.4079, 7.2946, -19.2072, 19.8826, -14.7382, 23.946, -6.68155, 23.6489, 0.749267, 20.1693, 7.79996, 13.4056, 12.4639, 2.78351, 12.8485, 8.14596, 6.40325 )
+polygon = PoolVector2Array( 6.78679, -1.76668, -4.18149, -15.4079, 7.2946, -19.2072, 19.8826, -14.7382, 23.946, -6.68155, 23.6489, 0.749267, 20.1693, 7.79996, 13.4056, 12.4639, 2.78351, 12.8485, 7.11839, 6.17332 )
 disabled = true
-script = ExtResource( 8 )
